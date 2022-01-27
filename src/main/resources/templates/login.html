@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="referrer" content="no-referrer"/>
+    <title>Frontegg Identity Server - Spring Boot Sample </title>
+    <link href="css/app.css" rel="stylesheet" type="text/css"/>
+
+</head>
+<body>
+
+<div id="logged-out-view">
+    <div class="header-title">
+        <h1>
+            OIDC Authentication Sample <br>
+        </h1>
+    </div>
+    <div class="content">
+
+        <h3>
+            Sample demo to showcase how to authenticate a simple client side application using
+            <b>Frontegg Identity Server</b> with Spring-boot OAuth Library
+        </h3>
+    </div>
+</div>
+<h3>Login with:</h3>
+<p th:each="url : ${urls}">
+    <a th:text="${url.key}" th:href="${url.value}" class="btn primary">Client</a>
+</p>
+
+
+
+</body>
+</html>

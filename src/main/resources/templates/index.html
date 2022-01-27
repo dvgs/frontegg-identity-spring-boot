@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <meta name="referrer" content="no-referrer"/>
+    <title>Frontegg Identity Server - Spring Boot Sample </title>
+    <link href="css/app.css" rel="stylesheet" type="text/css"/>
+</head>
+
+<body>
+<div id="logged-in-view">
+    <div class="header-title">
+        <h1>Logged in as <span style="font-weight:bold" th:text="${userName}"></span></h1>
+    </div>
+    <div class="container">
+        <div class="content">
+            <h3>Below are the basic token details retrieve from the server on a successful login.</h3>
+            <div>
+                <ul class="details">
+                    <li><span>Access Token:</span> <span style="font-weight:bold" th:text="${accessToken}"></span></li>
+                    <li><span>Access Token Expiry Time:</span> <span style="font-weight:bold"
+                                                                     th:text="${accessTokenExp}"></span></li>
+                    <li><span>Scope:</span> <span style="font-weight:bold" th:text="${scope}"></span></li>
+                    <li><span>Token Type:</span> <span style="font-weight:bold" th:text="${tokenType}"></span></li>
+                    <li><span>Refresh Token:</span> <span style="font-weight:bold" th:text="${refreshToken}"></span>
+                    </li>
+                </ul>
+            </div>
+            <div style="width: 100%">
+                <div style="width:33.3%">
+                    <form th:action="@{/userinfo}" method="get">
+                        <button class="btn primary" type="submit">View IDToken</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <div style="width:33.3%">
+                    <form th:action="@{/test}" method="get">
+                        <button class="btn primary" type="submit">Roles test</button>
+                    </form>
+                </div>
+            </div>
+            <div>
+                <div style="width:33.3%">
+                    <form method="post" th:action="@{/logout}">
+                        <button class="btn primary" type="submit">Logout</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+provider:
+  host: https://app-uzx873hohwst.frontegg.com #Change the host
+
+client:
+  client-id: b74785c1-ba69-4b61-b4c5-74ac68148772  #Change client-id
+  client-secret: 7477f0fb-60d9-4f5f-9ccd-9bc64ca3df67 # Change client-secret
+  #  post-logout-uri: http://localhost:8080/spring-boot-sample/login
+  post-logout-uri: http://localhost:8080/login
+  scope: openid, profile, email, roles
+  authorization-grant-type: authorization_code
+
+
+#No need to change the following configurations
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          frontegg:
+            client-id: ${client.client-id} #Change client-id
+            client-secret: ${client.client-secret} # Change client-secret
+            authorization-grant-type: ${client.authorization-grant-type}
+            scope: ${client.scope}
+        provider:
+          frontegg:
+            issuer-uri: ${provider.host}
+
+  thymeleaf:
+    cache: false
